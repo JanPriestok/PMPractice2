@@ -29,9 +29,7 @@ public partial class MasterFloorContext : DbContext
 
     public virtual DbSet<ProductType> ProductTypes { get; set; }
 
-    public virtual DbSet<SaleHeader> SaleHeaders { get; set; }
-
-    public virtual DbSet<SaleItem> SaleItems { get; set; }
+    public virtual DbSet<Sale> Sale { get; set; }
 
 //    protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
 //#warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see https://go.microsoft.com/fwlink/?LinkId=723263.
@@ -215,43 +213,34 @@ public partial class MasterFloorContext : DbContext
                 .HasColumnName("name");
         });
 
-        modelBuilder.Entity<SaleHeader>(entity =>
+        // Настройка сущности Sale
+        modelBuilder.Entity<Sale>(entity =>
         {
-            entity.HasKey(e => e.Id).HasName("sale_headers_pkey");
+            entity.HasKey(e => e.Id).HasName("sales_pkey");
 
-            entity.ToTable("sale_headers");
+            entity.ToTable("sales");
 
-            entity.Property(e => e.Id).HasColumnName("id");
+            entity.Property(e => e.Id)
+                .ValueGeneratedOnAdd()
+                .HasColumnName("id");
             entity.Property(e => e.PartnerId).HasColumnName("partner_id");
-            entity.Property(e => e.SaleDate).HasColumnName("sale_date");
-
-            entity.HasOne(d => d.Partner).WithMany(p => p.SaleHeaders)
-                .HasForeignKey(d => d.PartnerId)
-                .OnDelete(DeleteBehavior.ClientSetNull)
-                .HasConstraintName("sale_headers_partner_id_fkey");
-        });
-
-        modelBuilder.Entity<SaleItem>(entity =>
-        {
-            entity.HasKey(e => e.Id).HasName("sale_items_pkey");
-
-            entity.ToTable("sale_items");
-
-            entity.Property(e => e.Id).HasColumnName("id");
             entity.Property(e => e.ProductArticle)
                 .HasMaxLength(20)
                 .HasColumnName("product_article");
             entity.Property(e => e.Quantity).HasColumnName("quantity");
-            entity.Property(e => e.SaleId).HasColumnName("sale_id");
+            entity.Property(e => e.SaleDate).HasColumnName("sale_date");
 
-            entity.HasOne(d => d.ProductArticleNavigation).WithMany(p => p.SaleItems)
+            entity.HasOne(d => d.Partner)
+                .WithMany(p => p.Sales)
+                .HasForeignKey(d => d.PartnerId)
+                .OnDelete(DeleteBehavior.ClientSetNull)
+                .HasConstraintName("sales_partner_id_fkey");
+
+            entity.HasOne(d => d.ProductArticleNavigation)
+                .WithMany(p => p.Sales)
                 .HasForeignKey(d => d.ProductArticle)
                 .OnDelete(DeleteBehavior.ClientSetNull)
-                .HasConstraintName("sale_items_product_article_fkey");
-
-            entity.HasOne(d => d.Sale).WithMany(p => p.SaleItems)
-                .HasForeignKey(d => d.SaleId)
-                .HasConstraintName("sale_items_sale_id_fkey");
+                .HasConstraintName("sales_product_article_fkey");
         });
 
         OnModelCreatingPartial(modelBuilder);

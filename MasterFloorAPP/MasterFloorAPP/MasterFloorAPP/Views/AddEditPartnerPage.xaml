@@ -7,7 +7,7 @@
         <VerticalStackLayout Spacing="15" Padding="20">
 
             <!-- Наименование -->
-            <VerticalStackLayout Spacing="2">
+            <VerticalStackLayout Spacing="1">
                 <Label Text="Наименование" FontAttributes="Bold" FontSize="14" />
                 <Frame BorderColor="Black" CornerRadius="5" Padding="0" Margin="0" HasShadow="False">
                     <Entry Text="{Binding Partner.Name}" BackgroundColor="White" />
@@ -24,91 +24,51 @@
             </VerticalStackLayout>
 
             <!-- Рейтинг -->
-            <VerticalStackLayout Spacing="2">
+            <VerticalStackLayout Spacing="1">
                 <Label Text="Рейтинг (целое неотрицательное)" FontAttributes="Bold" FontSize="14" />
-                <Frame BorderColor="Black" CornerRadius="5" Padding="0" Margin="0" HasShadow="False">
+                <Border Stroke="Black" StrokeThickness="1" Padding="0" Margin="0">
                     <Entry Text="{Binding Partner.Rating}" Keyboard="Numeric" BackgroundColor="White" />
-                </Frame>
+                </Border>
             </VerticalStackLayout>
 
             <!-- Фамилия директора -->
-            <VerticalStackLayout Spacing="2">
+            <VerticalStackLayout Spacing="1">
                 <Label Text="Фамилия директора" FontAttributes="Bold" FontSize="14" />
-                <Frame BorderColor="Black" CornerRadius="5" Padding="0" Margin="0" HasShadow="False">
+                <Border Stroke="Black" StrokeThickness="1" Padding="0" Margin="0">
                     <Entry Text="{Binding Partner.DirectorLastName}" BackgroundColor="White" />
-                </Frame>
+                </Border>
             </VerticalStackLayout>
 
             <!-- Имя директора -->
-            <VerticalStackLayout Spacing="2">
+            <VerticalStackLayout Spacing="1">
                 <Label Text="Имя директора" FontAttributes="Bold" FontSize="14" />
-                <Frame BorderColor="Black" CornerRadius="5" Padding="0" Margin="0" HasShadow="False">
+                <Border Stroke="Black" StrokeThickness="1" Padding="0" Margin="0">
                     <Entry Text="{Binding Partner.DirectorFirstName}" BackgroundColor="White" />
-                </Frame>
+                </Border>
             </VerticalStackLayout>
 
             <!-- Отчество директора -->
-            <VerticalStackLayout Spacing="2">
+            <VerticalStackLayout Spacing="1">
                 <Label Text="Отчество директора" FontAttributes="Bold" FontSize="14" />
-                <Frame BorderColor="Black" CornerRadius="5" Padding="0" Margin="0" HasShadow="False">
+                <Border Stroke="Black" StrokeThickness="1" Padding="0" Margin="0">
                     <Entry Text="{Binding Partner.DirectorMiddleName}" BackgroundColor="White" />
-                </Frame>
+                </Border>
             </VerticalStackLayout>
 
             <!-- Телефон -->
-            <VerticalStackLayout Spacing="2">
+            <VerticalStackLayout Spacing="1">
                 <Label Text="Телефон" FontAttributes="Bold" FontSize="14" />
-                <Frame BorderColor="Black" CornerRadius="5" Padding="0" Margin="0" HasShadow="False">
+                <Border Stroke="Black" StrokeThickness="1" Padding="0" Margin="0">
                     <Entry Text="{Binding Partner.Phone}" BackgroundColor="White" />
-                </Frame>
+                </Border>
             </VerticalStackLayout>
 
             <!-- Email -->
-            <VerticalStackLayout Spacing="2">
+            <VerticalStackLayout Spacing="1">
                 <Label Text="Email" FontAttributes="Bold" FontSize="14" />
-                <Frame BorderColor="Black" CornerRadius="5" Padding="0" Margin="0" HasShadow="False">
+                <Border Stroke="Black" StrokeThickness="1" Padding="0" Margin="0">
                     <Entry Text="{Binding Partner.Email}" BackgroundColor="White" />
-                </Frame>
-            </VerticalStackLayout>
-
-            <!-- Адрес: Почтовый индекс -->
-            <VerticalStackLayout Spacing="2">
-                <Label Text="Адрес: Почтовый индекс" FontAttributes="Bold" FontSize="14" />
-                <Frame BorderColor="Black" CornerRadius="5" Padding="0" Margin="0" HasShadow="False">
-                    <Entry Text="{Binding Partner.LegalAddress.PostalCode}" BackgroundColor="White" />
-                </Frame>
-            </VerticalStackLayout>
-
-            <!-- Область/регион -->
-            <VerticalStackLayout Spacing="2">
-                <Label Text="Область / регион" FontAttributes="Bold" FontSize="14" />
-                <Frame BorderColor="Black" CornerRadius="5" Padding="0" Margin="0" HasShadow="False">
-                    <Entry Text="{Binding Partner.LegalAddress.Area}" BackgroundColor="White" />
-                </Frame>
-            </VerticalStackLayout>
-
-            <!-- Город -->
-            <VerticalStackLayout Spacing="2">
-                <Label Text="Город" FontAttributes="Bold" FontSize="14" />
-                <Frame BorderColor="Black" CornerRadius="5" Padding="0" Margin="0" HasShadow="False">
-                    <Entry Text="{Binding Partner.LegalAddress.City}" BackgroundColor="White" />
-                </Frame>
-            </VerticalStackLayout>
-
-            <!-- Улица -->
-            <VerticalStackLayout Spacing="2">
-                <Label Text="Улица" FontAttributes="Bold" FontSize="14" />
-                <Frame BorderColor="Black" CornerRadius="5" Padding="0" Margin="0" HasShadow="False">
-                    <Entry Text="{Binding Partner.LegalAddress.Street}" BackgroundColor="White" />
-                </Frame>
-            </VerticalStackLayout>
-
-            <!-- Дом -->
-            <VerticalStackLayout Spacing="2">
-                <Label Text="Дом" FontAttributes="Bold" FontSize="14" />
-                <Frame BorderColor="Black" CornerRadius="5" Padding="0" Margin="0" HasShadow="False">
-                    <Entry Text="{Binding Partner.LegalAddress.House}" BackgroundColor="White" />
-                </Frame>
+                </Border>
             </VerticalStackLayout>
 
             <!-- Кнопки -->

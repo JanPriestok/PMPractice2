@@ -28,16 +28,12 @@ public class PartnersController : ControllerBase
         var result = new List<object>();
         foreach (var p in partners)
         {
-            var totalQuantity = await _context.SaleHeaders
+            var totalQuantity = await _context.Sale
                 .Where(sh => sh.PartnerId == p.Id)
-                .SelectMany(sh => sh.SaleItems)
+                //.SelectMany(sh => sh.Sale)
                 .SumAsync(si => si.Quantity);
 
-            int discount = 0;
-            if (totalQuantity >= 300000) discount = 15;
-            else if (totalQuantity >= 50000) discount = 10;
-            else if (totalQuantity >= 10000) discount = 5;
-
+            int discount = CalculateDiscount(totalQuantity);
             result.Add(new
             {
                 p.Id,
@@ -172,5 +168,28 @@ public class PartnersController : ControllerBase
         {
             return StatusCode(500, $"Внутренняя ошибка сервера: {ex.Message}");
         }
+    }
+    private int CalculateDiscount(int totalQuantity)
+    {
+        int discount;
+
+        if (totalQuantity < 10000)
+        {
+            discount = 0;
+        }
+        else if (totalQuantity < 50000)
+        {
+            discount = 5;
+        }
+        else if (totalQuantity < 300000)
+        {
+            discount = 10;
+        }
+        else
+        {
+            discount = 15;
+        }
+
+        return discount;
     }
 }

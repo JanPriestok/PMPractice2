@@ -1,4 +1,4 @@
-INSERT INTO addresses (id, postal_code, area, city, street, house) VALUES
+	INSERT INTO addresses (id, postal_code, area, city, street, house) VALUES
 (1, '652050', 'Кемеровская область', 'город Юрга', 'ул. Лесная', '15'),
 (2, '164500', 'Архангельская область', 'город Северодвинск', 'ул. Строителей', '18'),
 (3, '188910', 'Ленинградская область', 'город Приморск', 'ул. Парковая', '21'),

@@ -9,6 +9,12 @@
                 <ResourceDictionary Source="Resources/Styles/Colors.xaml" />
                 <ResourceDictionary Source="Resources/Styles/Styles.xaml" />
             </ResourceDictionary.MergedDictionaries>
+            <ResourceDictionary>
+                <!-- Заданная цветовая палитра -->
+                <Color x:Key="MainBackground">#FFFFFF</Color>
+                <Color x:Key="AdditionalBackground">#F4E8D3</Color>
+                <Color x:Key="AccentColor">#67BA80</Color>
+            </ResourceDictionary>
         </ResourceDictionary>
     </Application.Resources>
 </Application>

@@ -9,11 +9,11 @@
             <Button Text="Добавить партнёра" 
                     Command="{Binding AddPartnerCommand}"
                     Margin="10,10,10,5"
-                    BackgroundColor="#2196F3"
+                    BackgroundColor="#67BA80"
                     TextColor="White"
-                    FontAttributes="Bold"/>
-
-            <Label Text="Список партнёров" FontSize="25" FontAttributes="Bold" Margin="5,10"/>
+                    FontAttributes="Bold"
+                    HorizontalOptions="End"
+                    VerticalOptions="End"/>
 
             <CollectionView ItemsSource="{Binding Partners}">
                 <CollectionView.ItemTemplate>
@@ -54,7 +54,7 @@
                                         Text="Редактировать" 
                                         Command="{Binding Source={x:Reference mainPage}, Path=BindingContext.EditCommand}"
                                         CommandParameter="{Binding .}"
-                                        BackgroundColor="#4CAF50"
+                                        BackgroundColor="#67BA80"
                                         TextColor="White"
                                         FontSize="12"
                                         WidthRequest="120"

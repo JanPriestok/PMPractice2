@@ -17,7 +17,7 @@ public partial class Product
 
     public virtual Material? Material { get; set; }
 
-    public virtual ICollection<SaleItem> SaleItems { get; set; } = new List<SaleItem>();
+    public virtual ICollection<Sale> Sales { get; set; } = new List<Sale>();
 
     public virtual ProductType Type { get; set; } = null!;
 }

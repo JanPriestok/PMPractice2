@@ -7,6 +7,7 @@ using MasterFloorAPP.Services;
 
 namespace MasterFloorAPP.ViewModels
 {
+
     public class MainPageViewModel : INotifyPropertyChanged
     {
         private readonly ApiService _apiService;

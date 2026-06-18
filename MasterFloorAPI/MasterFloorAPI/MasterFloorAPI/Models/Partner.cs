@@ -31,7 +31,7 @@ public partial class Partner
 
     public virtual ICollection<PartnerRatingHistory> PartnerRatingHistories { get; set; } = new List<PartnerRatingHistory>();
 
-    public virtual ICollection<SaleHeader> SaleHeaders { get; set; } = new List<SaleHeader>();
+    public virtual ICollection<Sale> Sales { get; set; } = new List<Sale>();
 
     public virtual PartnerType Type { get; set; } = null!;
 }
